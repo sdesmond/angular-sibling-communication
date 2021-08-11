@@ -29,4 +29,10 @@ export class ChildTwoComponent implements OnInit, OnChanges {
     }
     this.out.emit(message);
   }
+
+  public messageReceived($event: string) {
+    // this.info = `ParentComponent: updating message to '${$event}'`;
+    // console.log(this.info);
+    this.sendMessage($event);
+  }
 }

@@ -10,13 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import {GrandchildOneComponent} from './components/grandchild-one/grandchild-one.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
     ChildOneComponent,
-    ChildTwoComponent
+    ChildTwoComponent,
+    GrandchildOneComponent
   ],
   imports: [
     BrowserModule,

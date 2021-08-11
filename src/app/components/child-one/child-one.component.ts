@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-child-one',
@@ -6,6 +6,8 @@ import {Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges} from 
   styleUrls: ['./child-one.component.scss']
 })
 export class ChildOneComponent implements OnInit, OnChanges {
+  @Input()
+  public in: string | undefined;
 
   @Output()
   public out = new EventEmitter<string>();

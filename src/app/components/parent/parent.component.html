@@ -6,7 +6,9 @@
 </div>
 
 <div class="container">
-  <app-child-one (out)="messageReceived($event)"></app-child-one>
+  <app-child-one (out)="messageReceived($event)"
+                 [in]="message"></app-child-one>
 
-  <app-child-two [in]="message"></app-child-two>
+  <app-child-two (out)="messageReceived($event)"
+                 [in]="message"></app-child-two>
 </div>

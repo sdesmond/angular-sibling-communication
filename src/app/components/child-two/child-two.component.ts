@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-child-two',
@@ -9,6 +9,9 @@ export class ChildTwoComponent implements OnInit, OnChanges {
   @Input()
   public in: string | undefined;
 
+  @Output()
+  public out = new EventEmitter<string>();
+
   public constructor() {
   }
 
@@ -17,5 +20,13 @@ export class ChildTwoComponent implements OnInit, OnChanges {
 
   public ngOnChanges(changes: SimpleChanges) {
     console.log(`ChildTwoComponent: ngOnChanges triggered '${changes.in.currentValue}'`);
+  }
+
+  public sendMessage(message: string): void {
+    if(!message) {
+      alert(`Enter a value to send`);
+      return;
+    }
+    this.out.emit(message);
   }
 }

@@ -1,0 +1,12 @@
+<h1>Parent Component</h1>
+<div *ngIf="info"
+     class="info-container"
+     style="text-align: center">
+  <span>{{info}}</span>
+</div>
+
+<div class="container">
+  <app-child-one (out)="messageReceived($event)"></app-child-one>
+
+  <app-child-two [in]="message"></app-child-two>
+</div>

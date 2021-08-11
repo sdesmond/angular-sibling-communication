@@ -1,0 +1,17 @@
+<h1>Child One</h1>
+
+<div>
+  <form>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input #message
+             matInput>
+    </mat-form-field>
+
+    <button (click)="sendMessage(message.value)"
+            mat-raised-button
+            type="submit"
+            color="primary">Emit Output
+    </button>
+  </form>
+</div>

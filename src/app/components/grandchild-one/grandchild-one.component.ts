@@ -1,4 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {DataService} from '../../services/data.service';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-grandchild-one',
@@ -6,20 +9,16 @@ import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@an
   styleUrls: ['./grandchild-one.component.scss']
 })
 export class GrandchildOneComponent implements OnInit {
-  @Input()
-  public in: string | undefined;
+  public data: Observable<string> | undefined;
 
-  @Output()
-  public out = new EventEmitter<string>();
+  private destroyed$ = new Subject();
 
-  public constructor() {
+  public constructor(private dataService: DataService) {
   }
 
   public ngOnInit(): void {
-  }
-
-  public ngOnChanges(changes: SimpleChanges) {
-    console.log(`ChildOneComponent: ngOnChanges triggered '${changes.in.currentValue}'`);
+    this.data = this.dataService.data$
+        .pipe(takeUntil(this.destroyed$));
   }
 
   public sendMessage(message: string): void {
@@ -27,7 +26,7 @@ export class GrandchildOneComponent implements OnInit {
       alert(`Enter a value to send`);
       return;
     }
-    this.out.emit(message);
+    this.dataService.updateData(message);
   }
 
 }

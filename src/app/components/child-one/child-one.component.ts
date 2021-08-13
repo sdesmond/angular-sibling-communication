@@ -1,25 +1,29 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
+import {Observable, Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-child-one',
   templateUrl: './child-one.component.html',
   styleUrls: ['./child-one.component.scss']
 })
-export class ChildOneComponent implements OnInit, OnChanges {
-  @Input()
-  public in: string | undefined;
+export class ChildOneComponent implements OnInit, OnDestroy {
+  public data: Observable<string> | undefined;
 
-  @Output()
-  public out = new EventEmitter<string>();
+  private destroyed$ = new Subject();
 
-  public constructor() {
+  public constructor(private dataService: DataService) {
   }
 
   public ngOnInit(): void {
+    this.data = this.dataService.data$
+        .pipe(takeUntil(this.destroyed$));
   }
 
-  public ngOnChanges(changes: SimpleChanges) {
-    console.log(`ChildOneComponent: ngOnChanges triggered '${changes.in.currentValue}'`);
+  public ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 
   public sendMessage(message: string): void {
@@ -27,7 +31,7 @@ export class ChildOneComponent implements OnInit, OnChanges {
       alert(`Enter a value to send`);
       return;
     }
-    this.out.emit(message);
+    this.dataService.updateData(message);
   }
 
 }

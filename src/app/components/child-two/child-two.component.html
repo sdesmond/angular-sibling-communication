@@ -1,22 +1,3 @@
 <h1>Child Two</h1>
 
-<div>
-  <div>Input = {{in}}</div>
-
-  <form>
-    <mat-form-field>
-      <mat-label>Message</mat-label>
-      <input #message
-             matInput>
-    </mat-form-field>
-
-    <button (click)="sendMessage(message.value)"
-            color="primary"
-            mat-raised-button
-            type="submit">Emit Output
-    </button>
-  </form>
-</div>
-
-<app-grandchild-one (out)="messageReceived($event)"
-                    [in]="in"></app-grandchild-one>
+<app-grandchild-one></app-grandchild-one>

@@ -4,6 +4,8 @@ This project demonstrates the use of a cache in an Angular service. For more inf
 
 This branch represents the state where sibling components can send messages to and receive messages from eachother.
 
+![two way sibling message](sibling-to-sibling-two-way.jpeg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

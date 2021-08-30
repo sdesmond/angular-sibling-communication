@@ -4,7 +4,7 @@ This project demonstrates the use of a cache in an Angular service. For more inf
 
 This branch represents the state where a child component needs to send messages to and get messages from the child of a sibling
 
-![comonent tree](componentTree.jpeg)
+![comonent tree](child-to-grandchild-two-way.jpeg)
 
 ## Development server
 

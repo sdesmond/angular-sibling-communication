@@ -4,6 +4,8 @@ This project demonstrates the use of a cache in an Angular service. For more inf
 
 This branch represents the state where one component sends a message through a shared parent to a sibling component
 
+![one-way message](sibling-to-sibling-one-way.jpeg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

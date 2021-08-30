@@ -3,10 +3,11 @@
 <div>
   <div>Data = {{data | async}}</div>
 
-  <form>
+  <form autocomplete="off">
     <mat-form-field>
       <mat-label>Message</mat-label>
       <input #message
+             type="text"
              matInput>
     </mat-form-field>
 

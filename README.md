@@ -4,6 +4,8 @@ This project demonstrates the use of a cache in an Angular service. For more inf
 
 This branch represents the state where a child component needs to send messages to and get messages from the child of a sibling
 
+![comonent tree](componentTree.jpeg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

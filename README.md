@@ -4,6 +4,8 @@ This project demonstrates the use of a cache in an Angular service. For more inf
 
 This branch represents the end state where we have a data service that components can tap into where needed.
 
+![data service](data-service.jpeg)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
